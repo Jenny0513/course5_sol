@@ -29,7 +29,7 @@ function LunchCheckController($scope) {
     else if (TextArray.length >3 ) {
       txtbxClr.style.borderColor = "green";
       myDiv.style.color = "green";
-      $scope.sayMessage = "Too much";
+      $scope.sayMessage = "Too Much!";
     };
   };
 
