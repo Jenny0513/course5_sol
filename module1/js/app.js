@@ -12,25 +12,34 @@ function LunchCheckController($scope) {
   $scope.sayMessage = "";
 
   $scope.CheckTooMuch = function () {
-    var TextArray = SplitText($scope.LunchMenu)
     var myDiv = document.getElementById("sayMsg");
     var txtbxClr = document.getElementById("lunch-menu");
+    var TxtCounter = 0;
 
-    if (TextArray == "") {
+    if ($scope.LunchMenu == "") {
       myDiv.style.color = "red";
       txtbxClr.style.borderColor = "red";
       $scope.sayMessage = "Please enter data first";
+
     }
-    else if (TextArray.length <= 3) {
-      txtbxClr.style.borderColor = "green";
-       myDiv.style.color = "green";
-       $scope.sayMessage = "Enjoy!";
-    }
-    else if (TextArray.length >3 ) {
+    else {
+
+      var TextArray = SplitText($scope.LunchMenu)
       txtbxClr.style.borderColor = "green";
       myDiv.style.color = "green";
-      $scope.sayMessage = "Too Much!";
-    };
+      for(var i=0; i < TextArray.length; i++){
+				if(TextArray[i].trim() != ""){
+					TxtCounter++;
+				}
+			}
+        if (TxtCounter <= 3) {
+          $scope.sayMessage = "Enjoy!";
+        }
+        else {
+          $scope.sayMessage = "Too Much!";
+        };
+
+      };
   };
 
   function SplitText (string){
