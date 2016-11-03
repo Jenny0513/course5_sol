@@ -10,6 +10,8 @@ LunchCheckController.$inject = ['$scope'];
 function LunchCheckController($scope) {
   $scope.LunchMenu = "";
   $scope.sayMessage = "";
+  $scope.myStyle = {};
+  $scope.bdrStyle = {};
 
   $scope.CheckTooMuch = function () {
     var myDiv = document.getElementById("sayMsg");
@@ -17,16 +19,17 @@ function LunchCheckController($scope) {
     var TxtCounter = 0;
 
     if ($scope.LunchMenu == "") {
-      myDiv.style.color = "red";
-      txtbxClr.style.borderColor = "red";
+      $scope.myStyle = {color: 'red'};
+      $scope.bdrStyle = {borderColor: 'red'};
       $scope.sayMessage = "Please enter data first";
 
     }
     else {
 
       var TextArray = SplitText($scope.LunchMenu)
-      txtbxClr.style.borderColor = "green";
-      myDiv.style.color = "green";
+      $scope.myStyle = {color: 'green'};
+      $scope.bdrStyle = {borderColor: 'green'};
+
       for(var i=0; i < TextArray.length; i++){
 				if(TextArray[i].trim() != ""){
 					TxtCounter++;
