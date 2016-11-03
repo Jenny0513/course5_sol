@@ -14,8 +14,6 @@ function LunchCheckController($scope) {
   $scope.bdrStyle = {};
 
   $scope.CheckTooMuch = function () {
-    var myDiv = document.getElementById("sayMsg");
-    var txtbxClr = document.getElementById("lunch-menu");
     var TxtCounter = 0;
 
     if ($scope.LunchMenu == "") {
