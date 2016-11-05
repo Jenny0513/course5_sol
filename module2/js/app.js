@@ -41,10 +41,11 @@ function ShoppingListCheckOffService() {
 // To Buy List
   var items = [
       {itemName: 'cookies', itemQuantity: 10},
-      {itemName: 'bottles of milk', itemQuantity: 5},
+      {itemName: 'milk', itemQuantity: 5},
       {itemName: 'apples', itemQuantity: 6},
       {itemName: 'oranges', itemQuantity: 3},
-      {itemName: 'bottles of soda', itemQuantity: 2}
+      {itemName: 'soda', itemQuantity: 2},
+      {itemName: 'bread', itemQuantity: 4}
   ];
 
 //Bought List
