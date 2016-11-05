@@ -51,8 +51,8 @@
          Bought {{ BoughtItem.itemQuantity }} {{ BoughtItem.itemName }}
        </li>
      </ul>
-     
-     <div class="emptyMessage" ng-if="!BoughtItem">Nothing bought yet!</div>
+
+     <div class="emptyMessage" ng-if="BoughtList.isListEmpty()">Nothing bought yet!</div>
     </div>
   </div>
 </div>
