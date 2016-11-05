@@ -10,15 +10,15 @@ angular.module('ShoppingListCheckOff', [])
 ToBuyController.$inject = ['ShoppingListCheckOffService'];
 function ToBuyController(ShoppingListCheckOffService) {
   var ToBuyList = this;
+
   ToBuyList.items = ShoppingListCheckOffService.getItems();
+  ToBuyList.isListEmpty = function() {
+    return ToBuyList.items.length == 0;
+  }
 
   ToBuyList.CheckOffItem = function (itemIndex) {
-    try {
-      ShoppingListCheckOffService.addItem(itemIndex);
-      ShoppingListCheckOffService.removeItem(itemIndex);
-    } catch (error) {
-      ToBuyList.errorMessage = error.message;
-    }
+    ShoppingListCheckOffService.addItem(itemIndex);
+    ShoppingListCheckOffService.removeItem(itemIndex);
   }
 
 };
@@ -28,11 +28,10 @@ AlreadyBoughtController.$inject = ['ShoppingListCheckOffService'];
 function AlreadyBoughtController(ShoppingListCheckOffService) {
   var BoughtList = this;
 
-    BoughtList.BoughtItems = ShoppingListCheckOffService.getBoughtItems();
-
-    BoughtList.isListEmpty = function() {
-      return BoughtList.BoughtItems.length == 0;
-    }
+  BoughtList.BoughtItems = ShoppingListCheckOffService.getBoughtItems();
+  BoughtList.isListEmpty = function() {
+    return BoughtList.BoughtItems.length == 0;
+  }
 
 };
 
@@ -66,9 +65,6 @@ function ShoppingListCheckOffService() {
 
   service.removeItem = function (itemIndex) {
     items.splice(itemIndex, 1);
-    if (items.length == 0) {
-      throw new Error ("Everything is bought!");
-      }
   };
 
 

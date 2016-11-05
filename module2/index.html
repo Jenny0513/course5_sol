@@ -40,7 +40,7 @@
        </li>
      </ul>
 
-     <div ng-if="ToBuyList.errorMessage" class="emptyMessage">{{ToBuyList.errorMessage}}</div>
+     <div ng-if="ToBuyList.isListEmpty()" class="emptyMessage">Everything is bought!</div>
     </div>
 
     <!-- Already Bought List -->
