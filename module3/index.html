@@ -22,7 +22,7 @@
 
     <div class="clearfix"></div>
 
-    <div ng-if="!list.found.length" class="emptyMessage"><b>Nothing found.</b></div>
+    <div ng-if="!list.found.length" class="emptyMessage">Nothing found.</div>
     <!-- found-items should be implemented as a component -->
     <div ng-if="list.found.length">
       <found-items items="list.found" on-remove="list.removeItem(index)"></found-items>

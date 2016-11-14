@@ -33,12 +33,13 @@ function FoundItemsDirectiveController() {
 
 function NarrowItDownController(MenuSearchService) {
   var list = this;
+  list.searchTerm = "";
   // List of found result
   list.found = [];
 
   list.getMatchedMenuItems = function () {
     list.found = []
-    if (list.searchTerm) {
+    if (list.searchTerm.length > 0) {
       var promise = MenuSearchService.getMatchedMenuItems(list.searchTerm);
       promise.then(function (response) {
         list.found = response;
@@ -46,14 +47,16 @@ function NarrowItDownController(MenuSearchService) {
       .catch(function (error) {
         console.log("Something Wrong");
       });
+    } else {
+      list.found = [];
     }
   };
 
   list.removeItem = function (itemIndex) {
     list.found.splice(itemIndex, 1);
-    if (!list.found.length) {
-      list.error = "Nothing found";
-    }
+    //if (!list.found.length) {
+    //  list.error = "Nothing found";
+    //}
   }
 
 }
