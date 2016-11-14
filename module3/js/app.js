@@ -16,15 +16,20 @@ function FoundItemsDirective() {
     scope: {
       items: '<',
       onRemove: '&'
-    }
-    //controller: NarrowItDownController,
-    //controllerAs: 'list',
-    //bindToController: true
+    },
+    controller: FoundItemsDirectiveController,
+    controllerAs: 'list',
+    bindToController: true
   };
 
   return ddo;
 }
 
+
+function FoundItemsDirectiveController() {
+  var list = this;
+
+}
 
 function NarrowItDownController(MenuSearchService) {
   var list = this;
