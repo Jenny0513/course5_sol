@@ -63,12 +63,12 @@ function MenuSearchService($http, ApiBasePath) {
       url: (ApiBasePath + "/menu_items.json"),
     }).then(function (result) {
 
-      var items = result.data.menu_items;
+      var menu_items = result.data.menu_items;
       var foundItems = []
 
-      for (var i = 0; i < items.length; i++) {
-          if (items[i].description.indexOf(searchTerm) != -1) {
-                foundItems.push(items[i]);
+      for (var i = 0; i < menu_items.length; i++) {
+          if (menu_items[i].description.indexOf(searchTerm) != -1) {
+                foundItems.push(menu_items[i]);
           }
       }
       return foundItems;
