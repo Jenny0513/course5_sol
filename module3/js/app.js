@@ -75,7 +75,7 @@ function MenuSearchService($http, ApiBasePath) {
       var lowerCaseTerm = searchTerm.toLowerCase();
 
       for (var i = 0; i < menu_items.length; i++) {
-          if (menu_items[i].description.indexOf(lowerCaseTerm) != -1) {
+          if (menu_items[i].description.toLowerCase().indexOf(lowerCaseTerm) != -1) {
                 foundItems.push(menu_items[i]);
           }
       }
