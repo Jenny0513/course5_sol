@@ -22,7 +22,7 @@
 
     <div class="clearfix"></div>
 
-    <div ng-if="!menu.found.length && !menu.foundtxt" class="emptyMessage"><b>Nothing found.</b></div>
+    <div ng-if="!menu.found.length && !menu.foundtxt" class="emptyMessage"><h3>Nothing found.</h3></div>
     <!-- found-items should be implemented as a component -->
     <found-items items="menu.found" on-remove="menu.removeItem(index)"></found-items>
 
