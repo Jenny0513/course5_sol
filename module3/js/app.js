@@ -72,10 +72,11 @@ function MenuSearchService($http, ApiBasePath) {
     }).then(function (result) {
 
       var menu_items = result.data.menu_items;
-      var foundItems = []
+      var foundItems = [];
+      var lowerCaseTerm = searchTerm.toLowerCase();
 
       for (var i = 0; i < menu_items.length; i++) {
-          if (menu_items[i].description.indexOf(searchTerm) != -1) {
+          if (menu_items[i].description.indexOf(lowerCaseTerm) != -1) {
                 foundItems.push(menu_items[i]);
           }
       }
