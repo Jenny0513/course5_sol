@@ -71,6 +71,7 @@ function MenuSearchService($http, ApiBasePath) {
       url: (ApiBasePath + "/menu_items.json"),
     }).then(function (result) {
 
+      foundItems = [];
       var menu_items = result.data.menu_items;
       var lowerCaseTerm = searchTerm.toLowerCase();
 
