@@ -36,6 +36,7 @@ function NarrowItDownController(MenuSearchService) {
   list.searchTerm = "";
   // List of found result
   list.found = [];
+  list.foundtxt = true;
 
   list.getMatchedMenuItems = function () {
     list.found = []
@@ -43,6 +44,7 @@ function NarrowItDownController(MenuSearchService) {
       var promise = MenuSearchService.getMatchedMenuItems(list.searchTerm);
       promise.then(function (response) {
         list.found = response;
+        list.foundtxt = false;
       })
       .catch(function (error) {
         console.log("Something Wrong");
