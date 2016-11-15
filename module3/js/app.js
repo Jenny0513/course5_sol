@@ -39,7 +39,6 @@ function NarrowItDownController(MenuSearchService) {
   menu.foundtxt = true;
 
   menu.getMatchedMenuItems = function () {
-    menu.found = []
     if (menu.searchTerm.length > 0) {
       var promise = MenuSearchService.getMatchedMenuItems(menu.searchTerm);
       promise.then(function (response) {
@@ -55,7 +54,8 @@ function NarrowItDownController(MenuSearchService) {
   };
 
   menu.removeItem = function (itemIndex) {
-    menu.found.splice(itemIndex, 1);
+    MenuSearchService.removeItem(itemIndex);
+    menu.foundtxt = true;
   }
 
 }
@@ -63,6 +63,7 @@ function NarrowItDownController(MenuSearchService) {
 
 function MenuSearchService($http, ApiBasePath) {
   var service = this;
+  var foundItems = [];
 
   service.getMatchedMenuItems = function (searchTerm) {
     return $http({
@@ -71,7 +72,6 @@ function MenuSearchService($http, ApiBasePath) {
     }).then(function (result) {
 
       var menu_items = result.data.menu_items;
-      var foundItems = [];
       var lowerCaseTerm = searchTerm.toLowerCase();
 
       for (var i = 0; i < menu_items.length; i++) {
@@ -83,6 +83,11 @@ function MenuSearchService($http, ApiBasePath) {
 
     });
   };
+
+  service.removeItem = function (itemIndex) {
+    foundItems.splice(itemIndex, 1);
+  };
+
 }
 
 
