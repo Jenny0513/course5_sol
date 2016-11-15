@@ -1,10 +1,10 @@
 
 <ol>
   <li ng-repeat="item in list.items">
+    <hr>
     {{ item.short_name}}
     <b>{{ item.name }} </b><button ng-click="list.onRemove({index: $index});">Don't want this one!</button>
     <br>
     <I>{{ item.description }}</I>
-    <hr>
   </li>
 </ol>
