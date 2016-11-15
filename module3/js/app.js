@@ -32,30 +32,30 @@ function FoundItemsDirectiveController() {
 }
 
 function NarrowItDownController(MenuSearchService) {
-  var list = this;
-  list.searchTerm = "";
+  var menu = this;
+  menu.searchTerm = "";
   // List of found result
-  list.found = [];
-  list.foundtxt = true;
+  menu.found = [];
+  menu.foundtxt = true;
 
-  list.getMatchedMenuItems = function () {
-    list.found = []
-    if (list.searchTerm.length > 0) {
-      var promise = MenuSearchService.getMatchedMenuItems(list.searchTerm);
+  menu.getMatchedMenuItems = function () {
+    menu.found = []
+    if (menu.searchTerm.length > 0) {
+      var promise = MenuSearchService.getMatchedMenuItems(menu.searchTerm);
       promise.then(function (response) {
-        list.found = response;
-        list.foundtxt = false;
+        menu.found = response;
+        menu.foundtxt = false;
       })
       .catch(function (error) {
         console.log("Something Wrong");
       });
     } else {
-      list.found = [];
+      menu.found = [];
     }
   };
 
-  list.removeItem = function (itemIndex) {
-    list.found.splice(itemIndex, 1);
+  menu.removeItem = function (itemIndex) {
+    menu.found.splice(itemIndex, 1);
   }
 
 }
