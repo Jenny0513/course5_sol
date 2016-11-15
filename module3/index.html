@@ -24,9 +24,7 @@
 
     <div ng-if="!list.found.length && !list.foundtxt" class="emptyMessage"><b>Nothing found.</b></div>
     <!-- found-items should be implemented as a component -->
-    <div ng-if="list.found.length">
-      <found-items items="list.found" on-remove="list.removeItem(index)"></found-items>
-    </div>
+    <found-items items="list.found" on-remove="list.removeItem(index)"></found-items>
 
   </div>
 
